@@ -3,19 +3,25 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import Main from './router'; 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Provider } from 'react-redux'
+import Main from './router'; 
+import store from './store'; 
+
 
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <MuiThemeProvider>
-          <Main/>
-        </MuiThemeProvider>
-      </Router>
+      <Provider store={store} >
+        <Router>
+          <MuiThemeProvider>
+           <Main/>
+          </MuiThemeProvider>
+        </Router>
+      </Provider>
+      
     );
   }
 }
